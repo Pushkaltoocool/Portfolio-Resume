@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FFFAE6;
+}
+
+header {
+    background-color: #002379;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #FFFAE6;
+    text-decoration: none;
+}
+
+section {
+    padding: 2rem;
+    margin: 1rem auto;
+    max-width: 800px;
+    background-color: #FFFAE6;
+    box-shadow: 0 0 20px rgba(0, 35, 121);
+}
+
+h1, h2 {
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-top: 1rem;
+}
+
+form input, form textarea {
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+form button {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background-color: #FFFAE6;
+    color: #FFFAE6;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #FFFAE6;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+
+}
+
+h1 {
+    font-size: 2.5rem; 
+    color: #333; 
+    text-align: center; 
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+    font-family: 'Arial Black', Gadget, sans-serif;
+}
+
+p {
+    font-size: 1.1rem; 
+    color: #555;
+    line-height: 1.6; 
+    margin: 15px 0; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial Black', Gadget, sans-serif; 
+
+}
+
+li {
+    font-size: 1.1rem; 
+    color: #555;
+    line-height: 1.6; 
+    margin: 15px 0; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial Black', Gadget, sans-serif; 
+
+}
