@@ -1,79 +1,312 @@
-
-<!-- home.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
+  <title>Pushkal Vashist - Portfolio</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <nav>
-    <h1>My Portfolio</h1>
-    <div>
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="skills.html">Skills</a>
-      <a href="contact.html">Contact</a>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home">Pushkal Vashist</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#skills">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 
-  <div class="content home">
-    <div style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; gap: 4rem;">
-      <h1 style="margin: 0;">Hi! I'm Pushkal!</h1>
-      <img src="profile.jpg" alt="Profile Picture" width="200" height="200" style="border-radius: 50%; box-shadow: 0 4px 6px rgba(223, 13, 13, 0.1);">
-    </div>
-
-    <hr>--------------------------------------------------------------------------------------------</hr>
-
-    <div class="about-me-section">
-      <h1>About Me</h1>
-      <h3 align="center">
-        Hi, I’m Pushkal! I’m a passionate coder and a sports enthusiast currently based in Singapore. I’m proficient in Python, HTML, CSS, C++. Outside coding, I enjoy Taekwondo (I’m a black belt!), football, cricket and chess. I value patience, creativity, and continuous growth.
-      </h3>
-      <h3 align="center">
-        I am currently a full-time student and am looking for internships in the technology industry. Additionally, I’m highly skilled in productivity tools such as Microsoft Word, PowerPoint, Google Docs, and Google Slides.
-      </h3>
-  
-      <div class="schools">
-        <div class="school">
-          <h3>Edgefield Primary School (2015 - 2020)</h3>
-          <ul>
-            <li><strong>CCA:</strong> Infocomm Club</li>
-            <li><strong>Leadership Roles:</strong> Junior Environmental Champion (P1-P2), Class Ambassador (P4-P5), Cyberwellness Ambassador (P5-P6)</li>
-            <li><strong>PSLE T-Score:</strong> 245</li>
-          </ul>
+  <!-- Home Section -->
+  <section id="home" class="content-section home-section">
+    <div class="container text-center">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-md-8">
+          <img src="profile.jpg" alt="Pushkal Vashist" class="profile-picture mb-4 animate-on-scroll fade-in-down">
+          <h1 class="display-3 fw-bold mb-3 animate-on-scroll fade-in-up" id="main-headline">Hi! I'm Pushkal!</h1>
+          <p class="lead mb-4 animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">A passionate coder, sports enthusiast, and lifelong learner.</p>
+          <a href="#about" class="btn btn-outline-light btn-lg animate-on-scroll fade-in-up" style="animation-delay: 0.4s;">Learn More About Me</a>
         </div>
-  
-        <div class="school">
-          <h3>Ngee Ann Secondary School (2021 - 2024)</h3>
-          <ul>
-            <li><strong>CCA:</strong> Chess Club</li>
-            <li><strong>Leadership Roles:</strong> Vice-Chairperson of Class & Social Studies Rep (Sec 4), VIA Chairperson & Social Studies Rep (Sec 3), Literature Rep (Sec 2)</li>
-            <li><strong>O Level Net Score:</strong> 7 (L1R5: 9, Bonus Points: 2)</li>
-            <li><strong>Conduct Grade:</strong> Excellent (Sec 3 EOY)</li>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="content-section about-section">
+    <div class="container">
+      <div class="text-center mb-5 animate-on-scroll fade-in">
+        <h2 class="display-4 fw-bold">About Me</h2>
+        <hr class="title-hr">
+      </div>
+
+      <div class="row gy-4">
+        <div class="col-lg-12 animate-on-scroll fade-in-left">
+          <div class="about-card p-4">
+            <h3 class="text-center">Introduction</h3>
+            <p class="text-center">
+              Hi, I’m Pushkal! I’m a passionate coder and a sports enthusiast currently based in Singapore. I’m proficient in Python, HTML, CSS, C++. Outside coding, I enjoy Taekwondo (I’m a black belt!), football, cricket and chess. I value patience, creativity, and continuous growth.
+            </p>
+            <p class="text-center">
+              I am currently a full-time student and am looking for internships in the technology industry. Additionally, I’m highly skilled in productivity tools such as Microsoft Word, PowerPoint, Google Docs, and Google Slides.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-12 animate-on-scroll fade-in-right">
+            <h3 class="text-center mt-4 mb-3">Education</h3>
+            <div class="row gy-4">
+                 <div class="col-md-6">
+                    <div class="education-card p-4 h-100">
+                        <h4>Edgefield Primary School (2015 - 2020)</h4>
+                        <ul>
+                        <li><strong>CCA:</strong> Infocomm Club</li>
+                        <li><strong>Leadership Roles:</strong> Junior Environmental Champion (P1-P2), Class Ambassador (P4-P5), Cyberwellness Ambassador (P5-P6)</li>
+                        <li><strong>PSLE T-Score:</strong> 245</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="education-card p-4 h-100">
+                        <h4>Ngee Ann Secondary School (2021 - 2024)</h4>
+                        <ul>
+                        <li><strong>CCA:</strong> Chess Club</li>
+                        <li><strong>Leadership Roles:</strong> Vice-Chairperson of Class & Social Studies Rep (Sec 4), VIA Chairperson & Social Studies Rep (Sec 3), Literature Rep (Sec 2)</li>
+                        <li><strong>O Level Net Score:</strong> 7 (L1R5: 9, Bonus Points: 2)</li>
+                        <li><strong>Conduct Grade:</strong> Excellent (Sec 3 EOY)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-12 animate-on-scroll fade-in-left">
+          <div class="via-card p-4 mt-4">
+            <h3 class="text-center">Volunteer Work (VIA)</h3>
+            <p>
+              During 2023, I had the privilege of serving as the VIA Chairperson. One of the most enriching experiences was working with students from St. Andrew’s Autism School over 5-6 months. I learned the value of patience and empathy while building connections with them. Highlights included hosting their visit to my school during National Day, where I served as their buddy. This experience taught me the importance of inclusion and the joy of fostering meaningful connections.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="content-section projects-section">
+    <div class="container">
+      <div class="text-center mb-5 animate-on-scroll fade-in">
+        <h2 class="display-4 fw-bold">My Projects</h2>
+        <hr class="title-hr">
+        <p class="lead">Here are some of my favourite projects. Find more on my <a href="https://github.com/Pushkaltoocool?tab=repositories" target="_blank" class="text-light fw-bold">GitHub Repositories Page</a>.</p>
+      </div>
+
+      <div class="row gy-4 justify-content-center">
+        <!-- Project 1: Pong Game -->
+        <div class="col-md-6 col-lg-4 animate-on-scroll fade-in-up">
+          <div class="card project-card h-100">
+            <img src="project1.jpg" class="card-img-top" alt="Pong Game">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Pong Game</h5>
+              <p class="card-text">A classic Pong game implementation using Python's Turtle graphics library.</p>
+              <div class="mt-auto">
+                <span class="badge bg-primary me-1">Python</span>
+                <span class="badge bg-secondary me-1">Turtle</span>
+                <span class="badge bg-info">OOP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Project 2: Snake Game -->
+        <div class="col-md-6 col-lg-4 animate-on-scroll fade-in-up" style="animation-delay: 0.1s;">
+          <div class="card project-card h-100">
+            <img src="project2.jpg" class="card-img-top" alt="Snake Game">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Snake Game</h5>
+              <p class="card-text">The iconic Snake game built with Python and Turtle graphics, focusing on game logic and OOP.</p>
+              <div class="mt-auto">
+                <span class="badge bg-primary me-1">Python</span>
+                <span class="badge bg-secondary me-1">Turtle</span>
+                <span class="badge bg-info">OOP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Project 3: Password Manager -->
+        <div class="col-md-6 col-lg-4 animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+          <div class="card project-card h-100">
+            <img src="https://placehold.co/600x400/777/FFF?text=Password+Manager" class="card-img-top" alt="Password Manager">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Password Manager</h5>
+              <p class="card-text">A desktop application to securely store and manage passwords, featuring password generation.</p>
+              <div class="mt-auto">
+                <span class="badge bg-primary me-1">Python</span>
+                <span class="badge bg-warning text-dark">Tkinter</span>
+                <span class="badge bg-danger">Security</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Project 4: Spotify Time Machine -->
+        <div class="col-md-6 col-lg-4 animate-on-scroll fade-in-up" style="animation-delay: 0.3s;">
+          <div class="card project-card h-100">
+            <img src="https://placehold.co/600x400/1DB954/FFF?text=Spotify+Time+Machine" class="card-img-top" alt="Spotify Time Machine">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Spotify Time Machine</h5>
+              <p class="card-text">Travel back in time and create a Spotify playlist of top songs from a specific date.</p>
+              <div class="mt-auto">
+                <span class="badge bg-primary me-1">Python</span>
+                <span class="badge bg-success">API</span>
+                <span class="badge bg-dark">Spotify</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Project 5: Flight Deal Notifier -->
+        <div class="col-md-6 col-lg-4 animate-on-scroll fade-in-up" style="animation-delay: 0.4s;">
+          <div class="card project-card h-100">
+            <img src="https://placehold.co/600x400/FF8C00/FFF?text=Flight+Notifier" class="card-img-top" alt="Flight Deal Notifier">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Flight Deal Notifier</h5>
+              <p class="card-text">Automated script to find and notify about cheap flight deals for desired destinations.</p>
+              <div class="mt-auto">
+                <span class="badge bg-primary me-1">Python</span>
+                <span class="badge bg-success">API</span>
+                <span class="badge bg-info">Automation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Project 6: AI Issue Classifier -->
+        <div class="col-md-6 col-lg-4 animate-on-scroll fade-in-up" style="animation-delay: 0.5s;">
+          <div class="card project-card h-100">
+            <img src="https://placehold.co/600x400/4A90E2/FFF?text=AI+Classifier" class="card-img-top" alt="AI Issue Classifier">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">AI DistilBERT Issue Classifier</h5>
+              <p class="card-text">Utilizes a DistilBERT model to classify GitHub issues, showcasing NLP and ML skills.</p>
+              <div class="mt-auto">
+                <span class="badge bg-primary me-1">Python</span>
+                <span class="badge bg-warning text-dark">AI/ML</span>
+                <span class="badge bg-info">NLP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="content-section skills-section">
+    <div class="container">
+      <div class="text-center mb-5 animate-on-scroll fade-in">
+        <h2 class="display-4 fw-bold">Skills & Experience</h2>
+        <hr class="title-hr">
+      </div>
+
+      <h3 class="text-center mb-4 animate-on-scroll fade-in">Core Technical Skills</h3>
+      <div class="row gy-4 justify-content-center text-center skills-grid mb-5">
+        <div class="col-6 col-md-3 animate-on-scroll fade-in-up">
+          <div class="skill-card p-4"><i class="fab fa-python fa-3x mb-2"></i><h5>Python</h5></div>
+        </div>
+        <div class="col-6 col-md-3 animate-on-scroll fade-in-up" style="animation-delay: 0.1s;">
+          <div class="skill-card p-4"><i class="fab fa-html5 fa-3x mb-2"></i><h5>HTML</h5></div>
+        </div>
+        <div class="col-6 col-md-3 animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+          <div class="skill-card p-4"><i class="fab fa-css3-alt fa-3x mb-2"></i><h5>CSS</h5></div>
+        </div>
+        <div class="col-6 col-md-3 animate-on-scroll fade-in-up" style="animation-delay: 0.3s;">
+          <div class="skill-card p-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-filetype-cpp mb-2" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM10.793 5H10V4.207L10.793 5ZM9 4h1v1H9V4Zm1 1.5V4h1v1.5a.5.5 0 0 0 .5.5H12v1h-.5a1.5 1.5 0 0 1-1.5-1.5ZM6.606 11.436a2.347 2.347 0 0 1-.042.044l-.01.006-.003.002h-.001a2.498 2.498 0 0 1-.379.255l-.026.015a1.397 1.397 0 0 1-.191.083l-.02.007a1.03 1.03 0 0 1-.124.031h-.002a.993.993 0 0 1-.195.026l-.017.002a.728.728 0 0 1-.09.006H6a.737.737 0 0 1-.1-.007l-.017-.002a1.033 1.033 0 0 1-.196-.026h-.002a1.042 1.042 0 0 1-.123-.031l-.02-.007a1.399 1.399 0 0 1-.191-.084l-.026-.015a2.495 2.495 0 0 1-.379-.255h-.001l-.003-.002-.01-.006a2.347 2.347 0 0 1-.042-.044 1.836 1.836 0 0 1-.169-.212l-.002-.003a1.206 1.206 0 0 1-.08-.118l-.001-.002c-.024-.035-.042-.066-.058-.097l-.002-.003c-.019-.035-.032-.067-.043-.098l-.001-.003a.85.85 0 0 1-.028-.078l-.001-.002a1.042 1.042 0 0 1-.018-.081l-.001-.003V9.08H4V10h.002l.001.002a1.077 1.077 0 0 1 .018.081l.001.003a.848.848 0 0 1 .028.078l.001.002c.011.031.024.063.043.098l.002.003c.016.03.034.062.058.097l.001.002a1.204 1.204 0 0 1 .08.118l.002.003c.05.06.105.118.169.17l.001.002a1.836 1.836 0 0 1 .211.169zm2.753-1.672v-.002l.001-.003a1.077 1.077 0 0 0 .018-.081l.001-.003a.848.848 0 0 0 .028-.078l.001-.002c.011-.031.024-.063.043-.098l.002-.003c.016-.03.034-.062.058-.097l.001-.002a1.204 1.204 0 0 0 .08-.118l.002-.003a1.836 1.836 0 0 0 .211-.169l.001-.002.042-.044a2.347 2.347 0 0 0 .042-.044l.01-.006.003-.002h.001a2.498 2.498 0 0 0 .379-.255l.026-.015a1.397 1.397 0 0 0 .191-.083l.02-.007a1.03 1.03 0 0 0 .124-.031h.002a.993.993 0 0 0 .195-.026l.017-.002a.728.728 0 0 0 .09-.006h.011a.737.737 0 0 0 .1.007l.017.002a1.033 1.033 0 0 0 .196.026h.002a1.042 1.042 0 0 0 .123.031l.02.007a1.399 1.399 0 0 0 .191.084l.026.015a2.495 2.495 0 0 0 .379.255h.001l.003.002.01.006a2.347 2.347 0 0 0 .042.044 1.836 1.836 0 0 0 .169.212l.002.003a1.206 1.206 0 0 0 .08.118l.001.002c.024.035.042.066.058.097l.002.003c.019.035.032.067.043.098l.001.003a.85.85 0 0 0 .028.078l.001.002a1.042 1.042 0 0 0 .018.081l.001.003V11.92H12V11h-.002Z"/>
+                <path d="M10.5 10.625h-1v1h1v-1Z"/>
+                <path d="M6.5 10.625h-1v1h1v-1Z"/>
+            </svg>
+            <h5>C++</h5></div>
+        </div>
+      </div>
+
+      <h3 class="text-center mb-4 mt-5 animate-on-scroll fade-in">Experience Highlights</h3>
+      <div class="row justify-content-center animate-on-scroll fade-in-up">
+        <div class="col-lg-10">
+          <ul class="experience-list">
+            <li>
+              <i class="fas fa-laptop-code me-2"></i>
+              <strong>Flask Web Development:</strong> Developed web applications using Flask, enhancing Python skills and understanding of web frameworks, routing, and templating.
+            </li>
+            <li>
+              <i class="fas fa-users me-2"></i>
+              <strong>Retail Associate (Part-time):</strong> Worked at Epitex International, improving customer service, communication, and sales skills in a fast-paced retail environment.
+            </li>
+            <li>
+              <i class="fas fa-satellite-dish me-2"></i>
+              <strong>API Integration:</strong> Built projects like a weather app using OpenWeatherMap API, gaining experience in consuming APIs, handling JSON data, and integrating external services.
+            </li>
+            <li>
+              <i class="fas fa-user-tie me-2"></i>
+              <strong>Class Leadership Roles:</strong> Managed responsibilities as Vice-Chairperson, Literature Rep, and Social Studies Rep, enhancing organizational, communication, and leadership abilities.
+            </li>
           </ul>
         </div>
       </div>
-  
-      <div class="via-section">
-        <h1>Volunteer Work</h1>
-        <h3>
-          During 2023, I had the privilege of serving as the VIA Chairperson. One of the most enriching experiences was working with students from St. Andrew’s Autism School over 5-6 months. I learned the value of patience and empathy while building connections with them. Highlights included hosting their visit to my school during National Day, where I served as their buddy. This experience taught me the importance of inclusion and the joy of fostering meaningful connections.
-        </h3>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="content-section contact-section">
+    <div class="container text-center">
+      <div class="animate-on-scroll fade-in">
+        <h2 class="display-4 fw-bold">Contact Me</h2>
+        <hr class="title-hr">
+        <p class="lead mb-4">Let's get in touch!</p>
+        <p>If you have any questions or would like to connect, feel free to reach out.</p>
+        <p class="h4">
+          <i class="fas fa-envelope me-2"></i>Email me at:
+          <a href="mailto:pushkal.vashist@gmail.com" class="text-light fw-bold">pushkal.vashist@gmail.com</a>
+        </p>
       </div>
     </div>
-    <footer class="footer">
-      <p>&copy; 2025 Pushkal. All Rights Reserved.</p>
-    </footer>
+  </section>
 
+  <!-- Footer -->
+  <footer class="footer bg-dark text-white text-center py-4">
+    <div class="container">
+      <p class="mb-0">© 2025 Pushkal Vashist. All Rights Reserved.</p>
+      <p class="mb-0">
+        Connect with me:
+        <a href="https://github.com/Pushkaltoocool" target="_blank" class="text-white mx-2"><i class="fab fa-github fa-lg"></i></a>
+        <a href="https://www.linkedin.com/in/pushkal-vashist-b63224363/" target="_blank" class="text-white mx-2"><i class="fab fa-linkedin fa-lg"></i></a>
+      </p>
+    </div>
+  </footer>
 
-</div>
-
-
-
-
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
 </body>
 </html>
-
