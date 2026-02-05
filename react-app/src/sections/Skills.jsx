@@ -15,12 +15,17 @@ const SkillCube = () => {
 
 const Skills = () => {
   return (
-    <section className="c-space my-20" id="skills">
+    <section className="c-space my-20" id="skills" data-aos="fade-up">
       <h3 className="head-text">Skills & Certifications</h3>
 
       <div className="grid md:grid-cols-2 grid-cols-1 gap-8 mt-12">
         {skills.map((skillGroup, index) => (
-          <div key={index} className="three-d-card">
+          <div
+            key={index}
+            className="three-d-card"
+            data-aos="fade-up"
+            data-aos-delay={100 + index * 80}
+          >
             <div className="three-d-card-content glass-container flex flex-row items-center gap-6">
               <div className="hidden sm:block w-32 h-32">
                 <Canvas>

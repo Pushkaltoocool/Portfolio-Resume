@@ -16,10 +16,10 @@ const About = () => {
   };
 
   return (
-    <section className="c-space my-20" id="about">
+    <section className="c-space my-20" id="about" data-aos="fade-up">
       <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
         <div className="col-span-1 xl:row-span-3">
-          <div className="grid-container">
+          <div className="grid-container" data-aos="fade-up" data-aos-delay="80">
             <img src="assets/grid1.png" alt="grid-1" className="w-full sm:h-[276px] h-fit object-contain" />
 
             <div>
@@ -32,20 +32,20 @@ const About = () => {
         </div>
 
         <div className="col-span-1 xl:row-span-3">
-          <div className="grid-container">
+          <div className="grid-container" data-aos="fade-up" data-aos-delay="160">
             <img src="assets/grid2.png" alt="grid-2" className="w-full sm:h-[276px] h-fit object-contain" />
 
             <div>
               <p className="grid-headtext">Tech Stack</p>
               <p className="grid-subtext">
-                I specialize in Python, C++, Machine Learning, Full-Stack Engineering, and Cloud Computing (AWS/Azure).
+                I specialize in Python, C++, Machine Learning, Full-Stack Development, and Cloud Computing (AWS/Azure).
               </p>
             </div>
           </div>
         </div>
 
         <div className="col-span-1 xl:row-span-4">
-          <div className="grid-container">
+          <div className="grid-container" data-aos="fade-up" data-aos-delay="240">
             <div className="rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center">
               <Globe
                 height={326}
@@ -68,7 +68,7 @@ const About = () => {
         </div>
 
         <div className="xl:col-span-2 xl:row-span-3">
-          <div className="grid-container">
+          <div className="grid-container" data-aos="fade-up" data-aos-delay="320">
             <img src="assets/grid3.png" alt="grid-3" className="w-full sm:h-[266px] h-fit object-contain" />
 
             <div>
@@ -81,7 +81,7 @@ const About = () => {
         </div>
 
         <div className="xl:col-span-1 xl:row-span-2">
-          <div className="grid-container">
+          <div className="grid-container" data-aos="fade-up" data-aos-delay="400">
             <img
               src="assets/grid4.png"
               alt="grid-4"
@@ -92,7 +92,7 @@ const About = () => {
               <p className="grid-subtext text-center">Contact me</p>
               <div className="copy-container" onClick={handleCopy}>
                 <img src={hasCopied ? 'assets/tick.svg' : 'assets/copy.svg'} alt="copy" />
-                <p className="lg:text-2xl md:text-xl font-medium text-gray_gradient text-white">pushkal.vashist@example.com</p>
+                <p className="lg:text-2xl md:text-xl font-medium text-gray_gradient text-white">pushkal.vashist@gmail.com</p>
               </div>
             </div>
           </div>

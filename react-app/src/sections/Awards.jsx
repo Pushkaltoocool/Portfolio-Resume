@@ -1,50 +1,22 @@
-import { Canvas } from '@react-three/fiber';
-import { Float, useTexture, Center } from '@react-three/drei';
-import { Suspense, useEffect } from 'react';
-import * as THREE from 'three';
 import { awards } from '../constants/index.js';
-import CanvasLoader from '../components/Loading.jsx';
-
-const AwardIcon = ({ icon }) => {
-  if (!icon) return null;
-  const texture = useTexture(icon);
-
-  useEffect(() => {
-    if (texture) {
-      texture.colorSpace = THREE.SRGBColorSpace;
-    }
-  }, [texture]);
-
-  return (
-    <Float floatIntensity={0.4} rotationIntensity={0.4}>
-      <Center>
-        <mesh>
-          <boxGeometry args={[6.5, 3.6, 0.05]} />
-          <meshStandardMaterial map={texture} roughness={0.3} metalness={0.2} />
-        </mesh>
-      </Center>
-    </Float>
-  );
-};
 
 const Awards = () => {
   return (
-    <section className="c-space my-20" id="awards">
+    <section className="c-space my-20" id="awards" data-aos="fade-up">
       <h3 className="head-text">Awards & Recognition</h3>
 
       <div className="grid md:grid-cols-2 grid-cols-1 gap-8 mt-12">
-        {awards.map((item) => (
-          <div key={`award-${item.id}`} className="three-d-card">
+        {awards.map((item, index) => (
+          <div
+            key={`award-${item.id}`}
+            className="three-d-card"
+            data-aos="zoom-in-up"
+            data-aos-delay={100 + index * 60}
+          >
             <div className="three-d-card-content glass-container !p-0 overflow-hidden flex flex-col h-full">
               {item.icon ? (
                 <div className="w-full h-72 bg-black-200 relative">
-                  <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-                    <ambientLight intensity={1.5} />
-                    <directionalLight position={[10, 10, 5]} intensity={0.5} />
-                    <Suspense fallback={<CanvasLoader />}>
-                      <AwardIcon icon={item.icon} />
-                    </Suspense>
-                  </Canvas>
+                  <img src={item.icon} alt={`${item.title} award`} className="w-full h-full object-cover" />
                 </div>
               ) : (
                 <div className="w-full h-72 bg-black-200 flex items-center justify-center">

@@ -193,7 +193,7 @@ export const workExperiences = [
     pos: 'AI Developer Intern',
     duration: 'Dec 2025 — Present',
     title: "Delivered production-minded ML workflows and data pipelines. Integrated cloud services to ship features reliably.",
-    icon: '/assets/framer.svg',
+    icon: 'https://media.licdn.com/dms/image/v2/D560BAQGCICpF4Ezbig/company-logo_100_100/B56ZuhvPZMKwAQ-/0/1767945075372/amztech_ai_logo?e=1772064000&v=beta&t=bHrw6qRiVsLNUgf44AGCYBDDF6nGKt2Z-6FVMXorL9w',
     animation: 'victory',
   },
   {
@@ -202,7 +202,7 @@ export const workExperiences = [
     pos: 'Sentinel Programme Apprentice',
     duration: 'Jun 2025 — Present',
     title: "Built Python solutions with a focus on cybersecurity and secure coding. Practiced structured problem-solving in high-assurance contexts.",
-    icon: '/assets/figma.svg',
+    icon: 'https://media.licdn.com/dms/image/v2/D560BAQHMDjOWwIuaCA/company-logo_200_200/company-logo_200_200/0/1693918682336/digital_and_intelligence_service_logo?e=1772064000&v=beta&t=Plak7rvSRm7CYi_HlIql_nS-56hsEFwzJvxbi-8XCcM',
     animation: 'clapping',
   },
   {
@@ -211,7 +211,7 @@ export const workExperiences = [
     pos: 'Retail Associate',
     duration: 'Dec 2024 — Jan 2025',
     title: "Handled high-footfall retail shifts while maintaining service quality. Managed POS, inventory checks, and customer queries under time pressure.",
-    icon: '/assets/notion.svg',
+    icon: 'https://media.licdn.com/dms/image/v2/C4E0BAQEP5rbbG6htPQ/company-logo_100_100/company-logo_100_100/0/1630616142044/epitexinternational_logo?e=1772064000&v=beta&t=o8sk9e6KbYihfK8rqEcovxfNSxBz3sKnyPnd39WgefE',
     animation: 'salute',
   },
 ];
@@ -225,7 +225,7 @@ export const awards = [
     icon: '/assets/mcs-comp.jpg',
     year: '2025',
     badge: 'Champion',
-    link: 'https://www.linkedin.com/posts/pushkal-vashist_maritimeone-champion-activity-7291000000000000000-xxxx',
+    link: 'https://www.linkedin.com/posts/pushkal-vashist-b63224363_maritimeone-mpa-smf-activity-7395118630314745858-jWen?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFpEi3sBy1zRdKu7mfOZtcj0CR8vMgQQTOU',
   },
   {
     id: 2,
@@ -235,7 +235,7 @@ export const awards = [
     icon: '/assets/national-ai-student-challenge-comp.jpg',
     year: '2025',
     badge: 'Silver',
-    link: 'https://www.linkedin.com/posts/pushkal-vashist_national-ai-student-challenge-activity-7291000000000000000-xxxx',
+    link: 'https://www.linkedin.com/posts/pushkal-vashist-b63224363_ai-machinelearning-nlp-activity-7333822188346650624-MSjC?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFpEi3sBy1zRdKu7mfOZtcj0CR8vMgQQTOU',
   },
   {
     id: 3,
@@ -245,7 +245,7 @@ export const awards = [
     icon: '/assets/hacx-comp.jpg',
     year: '2025',
     badge: 'Top 5',
-    link: 'https://www.linkedin.com/posts/pushkal-vashist_hacx-top5-activity-7291000000000000000-xxxx',
+    link: 'https://www.linkedin.com/posts/pushkal-vashist-b63224363_top-5-in-the-ai-cybersecurity-challenge-activity-7396037934002642945-AWDN?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFpEi3sBy1zRdKu7mfOZtcj0CR8vMgQQTOU',
   },
   {
     id: 4,

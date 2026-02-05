@@ -30,11 +30,11 @@ const Projects = ({ onSelectProject }) => {
   const currentProject = myProjects[selectedProjectIndex];
 
   return (
-    <section className="c-space my-20" id="projects">
+    <section className="c-space my-20" id="projects" data-aos="fade-up">
       <p className="head-text">My Selected Work</p>
 
       <div className="grid lg:grid-cols-2 grid-cols-1 mt-12 gap-5 w-full">
-        <div className="flex flex-col gap-5 relative sm:p-10 py-10 px-5 shadow-2xl shadow-black-200">
+        <div className="flex flex-col gap-5 relative sm:p-10 py-10 px-5 shadow-2xl shadow-black-200" data-aos="fade-right" data-aos-delay="120">
           <div className="absolute top-0 right-0 z-0 pointer-events-none">
             <img src={currentProject.spotlight} alt="spotlight" className="w-full h-96 object-cover rounded-xl" />
           </div>
@@ -78,7 +78,7 @@ const Projects = ({ onSelectProject }) => {
           </div>
         </div>
 
-        <div className="border border-black-300 bg-black-200 rounded-lg h-96 md:h-full">
+        <div className="border border-black-300 bg-black-200 rounded-lg h-96 md:h-full" data-aos="fade-left" data-aos-delay="180">
           <Canvas>
             <ambientLight intensity={1.5} />
             <directionalLight position={[10, 10, 5]} intensity={0.8} />

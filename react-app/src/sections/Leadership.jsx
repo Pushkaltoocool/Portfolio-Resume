@@ -15,12 +15,17 @@ const LeadershipIcon = () => {
 
 const Leadership = () => {
   return (
-    <section className="c-space my-20" id="leadership">
+    <section className="c-space my-20" id="leadership" data-aos="fade-up">
       <h3 className="head-text">Leadership & Service</h3>
 
       <div className="grid md:grid-cols-2 grid-cols-1 gap-8 mt-12">
-        {leadership.map((item) => (
-          <div key={item.id} className="three-d-card">
+        {leadership.map((item, index) => (
+          <div
+            key={item.id}
+            className="three-d-card"
+            data-aos="fade-up"
+            data-aos-delay={100 + index * 80}
+          >
             <div className="three-d-card-content glass-container flex items-center gap-6">
               <div className="w-24 h-24 flex-shrink-0">
                 <Canvas>

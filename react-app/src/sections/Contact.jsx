@@ -65,21 +65,22 @@ const Contact = () => {
   };
 
   return (
-    <section className="c-space my-20" id="contact">
+    <section className="c-space my-20" id="contact" data-aos="fade-up">
       {alert.show && <Alert {...alert} />}
 
-      <div className="relative min-h-screen flex items-center justify-center flex-col">
-        <img src="/assets/terminal.png" alt="terminal-bg" className="absolute inset-0 min-h-screen" />
+      <div className="relative min-h-screen flex items-center justify-center flex-col contact-shell" data-aos="fade-up" data-aos-delay="120">
+        <img src="/assets/terminal.png" alt="terminal-bg" className="absolute inset-0 h-full w-full object-cover" />
+        <div className="contact-overlay" aria-hidden="true" />
 
-        <div className="contact-container">
+        <div className="contact-container contact-card" data-aos="fade-up" data-aos-delay="200">
           <h3 className="head-text">Let's talk</h3>
           <p className="text-lg text-white-600 mt-3">
             Whether you’re looking to build a new website, improve your existing platform, or bring a unique project to
             life, I’m here to help.
           </p>
 
-          <form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-col space-y-7">
-            <label className="space-y-3">
+          <form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-col space-y-7" data-aos="fade-up" data-aos-delay="260">
+            <label className="space-y-3" data-aos="fade-up" data-aos-delay="300">
               <span className="field-label">Full Name</span>
               <input
                 type="text"
@@ -92,7 +93,7 @@ const Contact = () => {
               />
             </label>
 
-            <label className="space-y-3">
+            <label className="space-y-3" data-aos="fade-up" data-aos-delay="340">
               <span className="field-label">Email address</span>
               <input
                 type="email"
@@ -105,7 +106,7 @@ const Contact = () => {
               />
             </label>
 
-            <label className="space-y-3">
+            <label className="space-y-3" data-aos="fade-up" data-aos-delay="380">
               <span className="field-label">Your message</span>
               <textarea
                 name="message"
@@ -118,7 +119,7 @@ const Contact = () => {
               />
             </label>
 
-            <button className="field-btn" type="submit" disabled={loading}>
+            <button className="field-btn" type="submit" disabled={loading} data-aos="fade-up" data-aos-delay="420">
               {loading ? 'Sending...' : 'Send Message'}
 
               <img src="/assets/arrow-up.png" alt="arrow-up" className="field-btn_arrow" />

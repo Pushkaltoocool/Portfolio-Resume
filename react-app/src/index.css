@@ -11,6 +11,7 @@
 body {
   background: #010103;
   font-family: 'General Sans', sans-serif;
+  overflow-x: hidden;
 }
 
 @layer utilities {
@@ -211,5 +212,26 @@ body {
 
 .three-d-card:hover .three-d-card-content {
   transform: rotateY(5deg) rotateX(2deg);
+}
+
+.contact-shell {
+  position: relative;
+}
+
+.contact-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(35, 211, 251, 0.12), transparent 35%),
+    radial-gradient(circle at 80% 0%, rgba(28, 159, 255, 0.12), transparent 30%),
+    linear-gradient(180deg, rgba(5, 5, 5, 0.4), rgba(5, 5, 5, 0.75));
+  backdrop-filter: blur(2px);
+  pointer-events: none;
+}
+
+.contact-card {
+  background: rgba(5, 5, 5, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55), 0 0 30px rgba(35, 211, 251, 0.08);
+  border-radius: 16px;
 }
 
