@@ -7,7 +7,7 @@ const Hero = () => {
         <p className="sm:text-3xl text-xl font-medium text-white text-center font-generalsans">
           Hi, I am Pushkal Vashist <span className="waving-hand">👋</span>
         </p>
-        <p className="hero_tag text-gray_gradient">AI Enthusiast | Full Stack Developer | Learner</p>
+        <p className="hero_tag text-gray_gradient">AI & Full Stack Developer</p>
       </div>
 
       <div

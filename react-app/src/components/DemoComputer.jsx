@@ -14,6 +14,7 @@ const DemoComputer = (props) => {
   const { actions } = useAnimations(animations, group);
 
   const isVideo = props.texture?.endsWith('.mp4');
+  const flipVertical = props.flipVertical === true; // default: no flip; only flip when explicitly true
   const videoTexture = useVideoTexture(isVideo ? props.texture : '/textures/project/project1.mp4');
   const imageTexture = useTexture(!isVideo ? props.texture : '/assets/dockyai-demo.jpg');
 
@@ -21,10 +22,22 @@ const DemoComputer = (props) => {
 
   useEffect(() => {
     if (txt) {
-      txt.flipY = true;
+      txt.flipY = false; // control orientation manually
+      txt.wrapS = THREE.ClampToEdgeWrapping;
+      txt.wrapT = THREE.ClampToEdgeWrapping;
+      txt.center.set(0, 0);
+      txt.rotation = 0;
+      if (flipVertical) {
+        txt.repeat.set(1, -1); // optional flip when explicitly requested
+        txt.offset.set(0, 1);
+      } else {
+        txt.repeat.set(1, 1);
+        txt.offset.set(0, 0);
+      }
+      txt.needsUpdate = true; // ensure changes apply on remount/zoom toggle
       txt.colorSpace = THREE.SRGBColorSpace;
     }
-  }, [txt]);
+  }, [txt, flipVertical]);
 
   useGSAP(() => {
     gsap.from(group.current.rotation, {

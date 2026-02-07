@@ -36,7 +36,7 @@ const Awards = () => {
                   <span className="px-2 py-0.5 rounded bg-black-300 text-white-600 text-[10px] font-medium">
                     {item.year}
                   </span>
-                  {item.badge && item.id !== 4 && (
+                  {item.badge && (
                     <span className={`px-2 py-0.5 rounded text-[10px] font-bold flex items-center gap-1 ${
                       item.badge === 'Champion' ? 'bg-orange-500 text-white' : 'bg-white-700 text-black'
                     }`}>
@@ -46,17 +46,11 @@ const Awards = () => {
                 </div>
 
                 <h4 className="text-white text-2xl font-bold mb-1">{item.title}</h4>
-                <p className="text-white-600 text-sm mb-3 font-medium">{item.organization}</p>
-                
-                {item.description && (
-                  <p className="text-white-500 font-light text-sm leading-relaxed mb-6">
-                    {item.description}
-                  </p>
-                )}
+                <p className="text-white-600 text-sm mb-4 font-medium">{item.organization}</p>
 
                 {item.highlights && (
-                  <div className="flex flex-col gap-3 mb-6">
-                    <h5 className="text-white font-semibold text-base">Additional Highlights</h5>
+                  <div className="flex flex-col gap-3 mb-5">
+                    <h5 className="text-white font-semibold text-base">{item.highlightsTitle || 'Highlights'}</h5>
                     {item.highlights.map((h, i) => (
                       <div key={i} className="flex items-center justify-between bg-black-300/50 p-2 rounded-lg border border-white-100/10">
                         <span className="text-white-700 text-sm font-medium">{h.name}</span>
@@ -64,6 +58,12 @@ const Awards = () => {
                       </div>
                     ))}
                   </div>
+                )}
+
+                {item.description && (
+                  <p className="text-white-500 font-light text-sm leading-relaxed mb-6">
+                    {item.description}
+                  </p>
                 )}
 
                 <div className="mt-auto">
@@ -77,7 +77,7 @@ const Awards = () => {
                       <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                       </svg>
-                      View LinkedIn Post
+                      {item.linkLabel || 'View LinkedIn Post'}
                     </a>
                   )}
                 </div>

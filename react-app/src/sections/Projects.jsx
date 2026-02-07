@@ -12,8 +12,10 @@ const projectCount = myProjects.length;
 
 const Projects = ({ onSelectProject }) => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
+  const [isZoomed, setIsZoomed] = useState(false);
 
   const handleNavigation = (direction) => {
+    setIsZoomed(false);
     setSelectedProjectIndex((prevIndex) => {
       if (direction === 'previous') {
         return prevIndex === 0 ? projectCount - 1 : prevIndex - 1;
@@ -28,6 +30,8 @@ const Projects = ({ onSelectProject }) => {
   }, [selectedProjectIndex]);
 
   const currentProject = myProjects[selectedProjectIndex];
+
+  const toggleZoom = () => setIsZoomed((prev) => !prev);
 
   return (
     <section className="c-space my-20" id="projects" data-aos="fade-up">
@@ -53,8 +57,12 @@ const Projects = ({ onSelectProject }) => {
           <div className="flex items-center justify-between flex-wrap gap-5 z-10">
             <div className="flex items-center gap-3">
               {currentProject.tags.map((tag, index) => (
-                <div key={index} className="tech-logo">
-                  <img src={tag.path} alt={tag.name} />
+                <div key={index} className="tech-logo" title={tag.name}>
+                  {tag.iconClass ? (
+                    <i className={`${tag.iconClass} text-white text-lg`} aria-hidden="true"></i>
+                  ) : (
+                    <img src={tag.path} alt={tag.name} />
+                  )}
                 </div>
               ))}
             </div>
@@ -78,19 +86,48 @@ const Projects = ({ onSelectProject }) => {
           </div>
         </div>
 
-        <div className="border border-black-300 bg-black-200 rounded-lg h-96 md:h-full" data-aos="fade-left" data-aos-delay="180">
-          <Canvas>
-            <ambientLight intensity={1.5} />
-            <directionalLight position={[10, 10, 5]} intensity={0.8} />
-            <Center>
-              <Suspense fallback={<CanvasLoader />}>
-                <group scale={2} position={[0, -3, 0]} rotation={[0, -0.1, 0]}>
-                  <DemoComputer texture={currentProject.texture} />
-                </group>
-              </Suspense>
-            </Center>
-            <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
-          </Canvas>
+        <div
+          className="relative border border-black-300 bg-black-200 rounded-lg overflow-hidden"
+          style={{ height: '520px' }}
+          data-aos="fade-left"
+          data-aos-delay="180"
+        >
+          {isZoomed ? (
+            <button
+              type="button"
+              onClick={toggleZoom}
+              className="w-full h-full flex items-center justify-center bg-black-300 cursor-zoom-out"
+            >
+              <img
+                src={currentProject.texture}
+                alt={`${currentProject.title} preview`}
+                className="max-h-full max-w-full object-contain"
+              />
+              <span className="absolute top-3 right-3 text-white-600 text-xs bg-black-200/80 px-2 py-1 rounded border border-white-100/20">
+                Click to return
+              </span>
+            </button>
+          ) : (
+            <button type="button" onClick={toggleZoom} className="w-full h-full cursor-zoom-in">
+              <div className="absolute inset-0">
+                <Canvas className="w-full h-full" style={{ width: '100%', height: '100%' }}>
+                  <ambientLight intensity={1.5} />
+                  <directionalLight position={[10, 10, 5]} intensity={0.8} />
+                  <Center>
+                    <Suspense fallback={<CanvasLoader />}>
+                      <group scale={2} position={[0, -3, 0]} rotation={[0, -0.1, 0]}>
+                        <DemoComputer texture={currentProject.texture} flipVertical={currentProject.flipVertical} />
+                      </group>
+                    </Suspense>
+                  </Center>
+                  <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
+                </Canvas>
+              </div>
+              <span className="absolute top-3 right-3 text-white-600 text-xs bg-black-200/80 px-2 py-1 rounded border border-white-100/20">
+                Click to zoom
+              </span>
+            </button>
+          )}
         </div>
       </div>
     </section>
