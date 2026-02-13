@@ -301,12 +301,20 @@ export const skills = [
 export const leadership = [
   {
     id: 1,
-    title: 'NYP AI & Cloud Subcommittee',
-    description: 'Led workshops on Web Hosting Fundamentals (AWS EC2 + NGINX). Volunteered at NYP Open House.',
+    title: 'President | NYP Cloud Computing',
+    description: 'Lead a student committee to plan and execute Cloud and AI engineering workshops. I coordinate speakers and logistics to align events with industry topics like MLOps and cloud security.',
+    icon: '/assets/nyp_cloud_logo.jpg',
   },
   {
     id: 2,
-    title: 'VIA Chairperson (2023)',
-    description: 'Worked with St. Andrew’s Autism School. Hosted National Day visits and built meaningful connections.',
+    title: 'Student Leader | Sentinel Programme (DIS)',
+    description: 'Selected for a structured apprenticeship by the Digital and Intelligence Service. I lead peer coordination during technical challenges, assigning roles and ensuring timely delivery of team outputs.',
+    icon: '/assets/digital_and_intelligence_service_logo.jpg',
+  },
+  {
+    id: 3,
+    title: 'Subcommittee Member | NYP AI Club',
+    description: 'Co-organized technical events and supported workshop delivery on AI/ML fundamentals. I guide peers through hands-on exercises in accelerated training programs.',
+    icon: '/assets/nyp_ai_logo.jpg',
   },
 ];

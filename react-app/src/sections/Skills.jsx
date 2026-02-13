@@ -1,46 +1,58 @@
-import { Canvas } from '@react-three/fiber';
-import { Float, OrbitControls } from '@react-three/drei';
+import { useState } from 'react';
 import { skills } from '../constants/index.js';
 
-const SkillCube = () => {
-  return (
-    <Float floatIntensity={2} rotationIntensity={2}>
-      <mesh>
-        <boxGeometry args={[2, 2, 2]} />
-        <meshStandardMaterial color="#4d4d4d" emissive="#1a1a1a" roughness={0} metalness={1} />
-      </mesh>
-    </Float>
-  );
+const iconByTitle = {
+  'AI & Machine Learning': 'fa-solid fa-brain',
+  'Full-Stack Engineering': 'fa-solid fa-code',
+  'Cloud & DevOps': 'fa-solid fa-cloud',
+  'Data & BI Systems': 'fa-solid fa-database',
 };
 
 const Skills = () => {
-  return (
-    <section className="c-space my-20" id="skills" data-aos="fade-up">
-      <h3 className="head-text">Skills & Certifications</h3>
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
-      <div className="grid md:grid-cols-2 grid-cols-1 gap-8 mt-12">
+  return (
+    <section className="c-space my-24" id="skills">
+      <div className="flex flex-col gap-4 mb-12">
+        <h3 className="text-4xl font-bold text-white font-generalsans">Skills & Expertise</h3>
+        <p className="text-gray-400">The technical stack I use to bring intelligent ideas to life.</p>
+      </div>
+
+      <div className="grid lg:grid-cols-2 grid-cols-1 gap-10">
         {skills.map((skillGroup, index) => (
           <div
             key={index}
-            className="three-d-card"
+            className="relative group"
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
             data-aos="fade-up"
-            data-aos-delay={100 + index * 80}
+            data-aos-delay={index * 100}
           >
-            <div className="three-d-card-content glass-container flex flex-row items-center gap-6">
-              <div className="hidden sm:block w-32 h-32">
-                <Canvas>
-                  <ambientLight intensity={0.5} />
-                  <directionalLight position={[10, 10, 10]} intensity={1} />
-                  <SkillCube />
-                </Canvas>
+            {/* Hover Glow Effect */}
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-2xl opacity-0 group-hover:opacity-20 transition duration-500 blur"></div>
+            
+            <div className="relative flex flex-row items-center gap-6 glass-container p-6 rounded-2xl border border-white/5 bg-black/20 backdrop-blur-xl">
+
+              <div className="hidden sm:flex w-20 h-20 rounded-2xl flex-shrink-0 items-center justify-center border border-white/10 bg-white/5">
+                <i
+                  className={`${iconByTitle[skillGroup.title] || 'fa-solid fa-star'} text-3xl ${hoveredIndex === index ? 'text-yellow-400' : 'text-white-700'} transition-colors duration-300`}
+                  aria-hidden="true"
+                ></i>
               </div>
+
+              {/* Text Side */}
               <div className="flex-1">
-                <p className="grid-headtext">{skillGroup.title}</p>
-                <div className="flex flex-wrap gap-2 mt-3">
+                <h4 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+                  {skillGroup.title}
+                  {hoveredIndex === index && <span className="text-yellow-400 text-sm animate-pulse">●</span>}
+                </h4>
+                
+                <div className="flex flex-wrap gap-2">
                   {skillGroup.items.map((skill, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1 bg-black-300 text-white-600 rounded-lg text-sm border border-black-500 hover:border-white/50 transition-colors cursor-default">
+                      className="px-4 py-1.5 bg-white/5 text-gray-300 rounded-full text-xs font-medium border border-white/10 group-hover:border-yellow-500/50 transition-all duration-300"
+                    >
                       {skill}
                     </span>
                   ))}
