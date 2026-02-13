@@ -7,7 +7,7 @@ const About = () => {
   const [hasCopied, setHasCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText('pushkal.vashist@example.com');
+    navigator.clipboard.writeText('pushkal.vashist@gmail.com');
     setHasCopied(true);
 
     setTimeout(() => {
