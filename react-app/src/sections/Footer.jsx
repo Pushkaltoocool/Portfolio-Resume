@@ -3,19 +3,19 @@ const Footer = () => {
     {
       id: 1,
       name: 'GitHub',
-      icon: 'fab fa-github',
+      icon: 'fa-brands fa-github',
       link: 'https://github.com/pushkaltoocool',
     },
     {
       id: 2,
       name: 'LinkedIn',
-      icon: 'fab fa-linkedin',
+      icon: 'fa-brands fa-linkedin',
       link: 'https://www.linkedin.com/in/pushkal-vashist-b63224363/',
     },
     {
       id: 3,
       name: 'Kaggle',
-      icon: 'fab fa-kaggle',
+      icon: 'fa-brands fa-kaggle',
       link: 'https://www.kaggle.com/pushkalvashist', 
     },
   ];
@@ -39,11 +39,10 @@ const Footer = () => {
             className="group"
           >
             <div className="w-12 h-12 rounded-full flex justify-center items-center bg-black-300 border border-black-500 group-hover:border-yellow-500/50 group-hover:bg-yellow-500/10 transition-all duration-300 shadow-sm">
-              <img 
-                src={social.icon} 
-                alt={social.name} 
-                className="w-1/2 h-1/2 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" 
-              />
+              <i
+                className={`${social.icon} text-xl text-white/60 group-hover:text-white group-hover:scale-110 transition-all duration-300`}
+                aria-hidden="true"
+              ></i>
             </div>
           </a>
         ))}

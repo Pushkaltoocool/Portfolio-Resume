@@ -48,8 +48,8 @@ export const myProjects = [
     badge: 'CHAMPIONS 🏆',
     desc: 'DockyAI is an AI platform that optimizes port operations with anchorage recommendations, A* routing, and reinforcement learning.',
     subdesc: 'Champion project at the MaritimeONE Case Summit 2025.',
-    href: 'https://github.com/pushkalv/dockyai',
-    live: 'https://dockyai.vercel.app',
+    href: 'https://github.com/Pushkaltoocool/DockyAI-Case-Summit',
+    live: 'https://dockyai.netlify.app/',
     texture: '/assets/dockyai-demo.jpg',
     logo: '/assets/project-logo1.png',
     logoStyle: {
@@ -80,8 +80,8 @@ export const myProjects = [
     badge: 'SILVER MEDALIST 🥈',
     desc: 'SGResolve auto-classifies citizen reports, extracts information, and routes them to relevant agencies using NLP and Computer Vision.',
     subdesc: 'Silver Medalist at the National AI Student Challenge 2025.',
-    href: 'https://github.com/pushkalv/sgresolve',
-    live: 'https://sgresolve.vercel.app',
+    href: 'https://github.com/sgresolve/AuraGang-Tech4City',
+    live: 'https://sgresolve.netlify.app/',
     texture: '/assets/sgresolve-demo.png',
     logo: '/assets/project-logo2.png',
     logoStyle: {
@@ -115,8 +115,8 @@ export const myProjects = [
     badge: 'TOP 5 FINALIST 🏅',
     desc: 'AuraSentinel detects anomalies in system logs and generates incident reports using Azure and GPT-4o-mini.',
     subdesc: 'Top 5 Finalist at HacX 2025 (AI & Cyber Track).',
-    href: 'https://github.com/pushkalv/aurasentinel',
-    live: 'https://aurasentinel.vercel.app',
+    href: 'https://github.com/Pushkaltoocool/HacX-Aura-Gang/',
+    live: 'https://aurasentinel.netlify.app/',
     texture: '/assets/aurasentinel-demo.jpg',
     logo: '/assets/project-logo3.png',
     logoStyle: {
@@ -152,8 +152,8 @@ export const myProjects = [
     badge: 'DEPLOYED SYSTEM 🚀',
     desc: 'A platform that helps students master Networking with features like "Explain Like I\'m 5", instant AI grading, and community questions.',
     subdesc: 'Built with Firebase and Gemini API for an interactive learning experience.',
-    href: 'https://github.com/pushkalv/ai-learning-system',
-    live: 'https://ai-learning.vercel.app',
+    href: 'https://github.com/Pushkaltoocool/Network-Technology-Notes-And-Practice',
+    live: 'https://network-tech-aa2501.netlify.app/',
     texture: '/assets/network-tech-notes-demo.png',
     logo: '/assets/project-logo4.png',
     logoStyle: {
