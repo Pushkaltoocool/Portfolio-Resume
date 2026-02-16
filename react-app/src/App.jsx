@@ -2,6 +2,7 @@ import { Suspense, useEffect, useState } from 'react';
 import { useProgress } from '@react-three/drei';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Analytics } from '@vercel/analytics/react';
 import Hero from './sections/Hero.jsx';
 import About from './sections/About.jsx';
 import Footer from './sections/Footer.jsx';
@@ -67,6 +68,7 @@ const App = () => {
           </>
         )}
       </main>
+      <Analytics />
     </>
   );
 };
