@@ -13,5 +13,9 @@ export default defineConfig({
       // Allow serving parent workspace (fonts resolved from parent node_modules)
       allow: [path.resolve(__dirname, '..')],
     },
+    proxy: {
+      // Local stand-in for Vercel serverless functions (scripts/dev-api.mjs)
+      '/api': `http://127.0.0.1:${process.env.API_DEV_PORT || 8787}`,
+    },
   },
 })
