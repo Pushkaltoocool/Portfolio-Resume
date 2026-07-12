@@ -8,6 +8,7 @@
     "dev:web": "vite",
     "dev:api": "node scripts/dev-api.mjs",
     "build": "vite build",
+    "vercel-build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
