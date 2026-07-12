@@ -93,6 +93,11 @@ const ManageBooking = () => {
                 <p>
                   <span className="text-white-500">length:</span> {booking.durationMinutes} min
                 </p>
+                {booking.location && (
+                  <p>
+                    <span className="text-white-500">where:</span> {booking.location}
+                  </p>
+                )}
                 {booking.topic && (
                   <p>
                     <span className="text-white-500">topic:</span> {booking.topic}
