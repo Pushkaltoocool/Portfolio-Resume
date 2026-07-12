@@ -145,7 +145,7 @@ const BlogPost = () => {
                 <Link
                   to="/book"
                   className="inline-flex items-center gap-2 rounded-lg border border-blue-400/30 bg-blue-500/10 px-5 py-2.5 text-blue-100 hover:bg-blue-500/20 transition-colors">
-                  Want to talk about this? Book a call →
+                  Want to talk about this? Book the GOAT 🥶 →
                 </Link>
               </footer>
             </>

@@ -22,12 +22,14 @@ export default async function handler(req, res) {
     const config = bookingConfig();
     const name = String(body.name || '').trim().slice(0, 120);
     const email = String(body.email || '').trim().slice(0, 200);
+    const location = String(body.location || '').trim().slice(0, 300);
     const topic = String(body.topic || '').trim().slice(0, 200);
     const notes = String(body.notes || '').trim().slice(0, 2000);
     const durationMinutes = Number(body.durationMinutes);
 
     if (!name) return fail(res, 400, 'Please enter your name.');
     if (!isValidEmail(email)) return fail(res, 400, 'Please enter a valid email address.');
+    if (!location) return fail(res, 400, 'Please enter a location (e.g. Google Meet, Zoom, or a place).');
     if (!config.durations.includes(durationMinutes)) return fail(res, 400, 'Invalid meeting duration.');
 
     const start = new Date(String(body.start || ''));
@@ -73,6 +75,7 @@ export default async function handler(req, res) {
       status: 'pending',
       name,
       email,
+      location,
       topic,
       notes,
       start: start.toISOString(),
@@ -109,7 +112,7 @@ export default async function handler(req, res) {
         to_name: ownerName,
         reply_to: email, // replying to the alert reaches the guest directly
         subject: `New booking request: ${name} — ${whenOwner} (${durationMinutes} min)`,
-        message: `${name} (${email}) requested a call.\n\nWhen: ${whenOwner} (${config.timezone})\nDuration: ${durationMinutes} min\nTopic: ${topic || '—'}\nNotes: ${notes || '—'}${overlapsBusy ? '\n\n⚠️ This overlaps something already on your calendar.' : ''}\n\nRespond here (the guest is only invited once you confirm):\n✅ Confirm: ${confirmUrl}\n❌ Decline: ${declineUrl}\nReview: ${reviewUrl}`,
+        message: `${name} (${email}) requested a call.\n\nWhen: ${whenOwner} (${config.timezone})\nDuration: ${durationMinutes} min\nLocation: ${location}\nTopic: ${topic || '—'}\nNotes: ${notes || '—'}${overlapsBusy ? '\n\n⚠️ This overlaps something already on your calendar.' : ''}\n\nRespond here (the guest is only invited once you confirm):\n✅ Confirm: ${confirmUrl}\n❌ Decline: ${declineUrl}\nReview: ${reviewUrl}`,
         action_url: reviewUrl,
         action_label: 'Review & respond',
         confirm_url: confirmUrl,

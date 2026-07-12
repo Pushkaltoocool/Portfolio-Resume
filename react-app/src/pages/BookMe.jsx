@@ -22,7 +22,7 @@ const BookMe = () => {
   const [selectedSlot, setSelectedSlot] = useState(null);
   const [tzMode, setTzMode] = useState('owner'); // 'owner' | 'local'
 
-  const [form, setForm] = useState({ name: '', email: '', topic: '', notes: '', website: '' });
+  const [form, setForm] = useState({ name: '', email: '', location: '', topic: '', notes: '', website: '' });
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState(null);
   const [formError, setFormError] = useState('');
@@ -40,7 +40,7 @@ const BookMe = () => {
   }, []);
 
   useEffect(() => {
-    document.title = 'Book a call — Pushkal Vashist';
+    document.title = 'Book the GOAT — Pushkal Vashist';
     loadAvailability();
   }, [loadAvailability]);
 
@@ -75,6 +75,7 @@ const BookMe = () => {
           durationMinutes: duration,
           name: form.name,
           email: form.email,
+          location: form.location,
           topic: form.topic,
           notes: form.notes,
           website: form.website,
@@ -103,7 +104,7 @@ const BookMe = () => {
       <main className="max-w-3xl mx-auto relative c-space pt-32 pb-20 min-h-screen">
         <header data-aos="fade-up">
           <p className="font-mono text-sm text-blue-300/80">~/pushkal/schedule</p>
-          <h1 className="mt-3 text-4xl sm:text-5xl font-black text-white tracking-tight text-balance">Book a call</h1>
+          <h1 className="mt-3 text-4xl sm:text-5xl font-black text-white tracking-tight text-balance">Book the GOAT 🥶</h1>
           <p className="mt-4 text-white-600 leading-relaxed max-w-xl">
             Every booking is a request I confirm — you'll get a <span className="text-white-800">Google Calendar
             invite</span> by email the moment I do. Only my free/busy is shown, never what I'm actually doing.
@@ -323,6 +324,9 @@ const BookMe = () => {
             <div className="mt-5 grid sm:grid-cols-2 gap-4">
               <Field id="bk-name" label="Your name" required value={form.name} onChange={(v) => setForm((f) => ({ ...f, name: v }))} placeholder="Jane Doe" autoComplete="name" />
               <Field id="bk-email" label="Email" type="email" required value={form.email} onChange={(v) => setForm((f) => ({ ...f, email: v }))} placeholder="jane@company.com" autoComplete="email" />
+            </div>
+            <div className="mt-4">
+              <Field id="bk-location" label="Location" required value={form.location} onChange={(v) => setForm((f) => ({ ...f, location: v }))} placeholder="Google Meet, Zoom, or a place to meet" />
             </div>
             <div className="mt-4">
               <Field id="bk-topic" label="What's it about?" value={form.topic} onChange={(v) => setForm((f) => ({ ...f, topic: v }))} placeholder="AI project, internship, collab…" />
