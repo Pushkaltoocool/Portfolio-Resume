@@ -1,18 +1,42 @@
 import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 import { navLinks } from '../constants/index.js';
 
-const NavItems = ({ onClick = () => {} }) => (
-  <ul className="nav-ul">
-    {navLinks.map((item) => (
-      <li key={item.id} className="nav-li">
-        <a href={item.href} className="nav-li_a" onClick={onClick}>
-          {item.name}
-        </a>
+const NavItems = ({ onClick = () => {} }) => {
+  const { pathname } = useLocation();
+
+  return (
+    <ul className="nav-ul">
+      {navLinks.map((item) => {
+        const isRouteLink = !item.href.includes('#');
+        const isActive = isRouteLink && pathname.startsWith(item.href);
+        return (
+          <li key={item.id} className="nav-li">
+            <Link
+              to={item.href}
+              className={`nav-li_a ${isActive ? 'text-white' : ''}`}
+              onClick={onClick}>
+              {item.name}
+            </Link>
+          </li>
+        );
+      })}
+      <li className="nav-li">
+        <Link
+          to="/book"
+          onClick={onClick}
+          className="nav-book-cta">
+          <span className="relative flex h-2 w-2">
+            <span className="btn-ping" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+          </span>
+          Book Me
+        </Link>
       </li>
-    ))}
-  </ul>
-);
+    </ul>
+  );
+};
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,15 +48,15 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/90">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center py-5 mx-auto c-space">
-          <a href="/" className="text-neutral-400 font-bold text-xl hover:text-white transition-colors">
+          <Link to="/" className="text-neutral-400 font-bold text-xl hover:text-white transition-colors">
             Pushkal
-          </a>
+          </Link>
 
           <button
             onClick={toggleMenu}
             className="text-neutral-400 hover:text-white focus:outline-none sm:hidden flex"
             aria-label="Toggle menu">
-            <img src={isOpen ? 'assets/close.svg' : 'assets/menu.svg'} alt="toggle" className="w-6 h-6" />
+            <img src={isOpen ? '/assets/close.svg' : '/assets/menu.svg'} alt="toggle" className="w-6 h-6" />
           </button>
 
           <nav className="sm:flex hidden">

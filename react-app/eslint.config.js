@@ -8,6 +8,19 @@ import reactThree from '@react-three/eslint-plugin'
 export default [
   { ignores: ['dist'] },
   {
+    // Serverless functions + local scripts run in Node, not the browser
+    files: ['api/**/*.js', 'scripts/**/*.mjs'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: globals.node,
+    },
+    rules: {
+      ...js.configs.recommended.rules,
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+    },
+  },
+  {
     files: ['**/*.{js,jsx}'],
     languageOptions: {
       ecmaVersion: 2020,

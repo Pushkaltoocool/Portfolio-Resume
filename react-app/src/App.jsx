@@ -1,27 +1,43 @@
-import { Suspense, useEffect, useState } from 'react';
-import { useProgress } from '@react-three/drei';
+import { useEffect } from 'react';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Analytics } from '@vercel/analytics/react';
-import Hero from './sections/Hero.jsx';
-import About from './sections/About.jsx';
-import Footer from './sections/Footer.jsx';
-import Navbar from './sections/Navbar.jsx';
-import Contact from './sections/Contact.jsx';
-import Awards from './sections/Awards.jsx';
-import Skills from './sections/Skills.jsx';
-import Leadership from './sections/Leadership.jsx';
-import Projects from './sections/Projects.jsx';
-import WorkExperience from './sections/Experience.jsx';
-import SectionLoader from './components/SectionLoader.jsx';
-import ProjectDetails from './components/ProjectDetails.jsx';
-import Loader from './components/Loader.jsx';
+import Home from './pages/Home.jsx';
+import BlogIndex from './pages/blog/BlogIndex.jsx';
+import BlogPost from './pages/blog/BlogPost.jsx';
+import AdminDashboard from './pages/blog/AdminDashboard.jsx';
+import BlogEditor from './pages/blog/BlogEditor.jsx';
+import BookMe from './pages/BookMe.jsx';
+import ManageBooking from './pages/ManageBooking.jsx';
+
+// Scrolls to #anchors after route changes (e.g. /blog → /#projects), else to top.
+const ScrollManager = () => {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const id = hash.slice(1);
+      // Home sections render behind a loader; retry briefly until the target exists.
+      let attempts = 0;
+      const tryScroll = () => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        } else if (attempts++ < 40) {
+          setTimeout(tryScroll, 150);
+        }
+      };
+      tryScroll();
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+
+  return null;
+};
 
 const App = () => {
-  const [selectedProjectId, setSelectedProjectId] = useState(null);
-  const [showLoader, setShowLoader] = useState(true);
-  const { progress, active } = useProgress();
-
   useEffect(() => {
     AOS.init({
       duration: 900,
@@ -31,43 +47,20 @@ const App = () => {
     });
   }, []);
 
-  useEffect(() => {
-    if (!active && progress >= 100) {
-      const timeout = setTimeout(() => setShowLoader(false), 400);
-      return () => clearTimeout(timeout);
-    }
-  }, [active, progress]);
-
-  useEffect(() => {
-    if (!showLoader) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  }, [showLoader]);
-
   return (
     <>
-      {showLoader && <Loader />}
-
-      <main className="max-w-7xl mx-auto relative">
-        {selectedProjectId ? (
-          <ProjectDetails projectId={selectedProjectId} onClose={() => setSelectedProjectId(null)} />
-        ) : (
-          <>
-            <Navbar />
-            <Hero />
-            <About />
-            <Suspense fallback={<SectionLoader />}>
-              <WorkExperience />
-              <Projects onSelectProject={setSelectedProjectId} />
-              <Awards />
-              <Skills />
-              <Leadership />
-            </Suspense>
-            <Contact />
-            <Footer />
-          </>
-        )}
-      </main>
+      <ScrollManager />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blog" element={<BlogIndex />} />
+        <Route path="/blog/admin" element={<AdminDashboard />} />
+        <Route path="/blog/admin/new" element={<BlogEditor />} />
+        <Route path="/blog/admin/edit/:id" element={<BlogEditor />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/book" element={<BookMe />} />
+        <Route path="/manage-booking" element={<ManageBooking />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
       <Analytics />
     </>
   );

@@ -2,42 +2,42 @@ export const navLinks = [
   {
     id: 1,
     name: 'Home',
-    href: '#home',
+    href: '/#home',
   },
   {
     id: 2,
     name: 'About',
-    href: '#about',
+    href: '/#about',
   },
   {
     id: 3,
     name: 'Experience',
-    href: '#experience',
+    href: '/#experience',
   },
   {
     id: 4,
     name: 'Projects',
-    href: '#projects',
+    href: '/#projects',
   },
   {
     id: 5,
     name: 'Awards',
-    href: '#awards',
+    href: '/#awards',
   },
   {
     id: 6,
     name: 'Skills',
-    href: '#skills',
+    href: '/#skills',
   },
   {
     id: 7,
-    name: 'Leadership',
-    href: '#leadership',
+    name: 'Blog',
+    href: '/blog',
   },
   {
     id: 8,
     name: 'Contact',
-    href: '#contact',
+    href: '/#contact',
   },
 ];
 
