@@ -1,5 +1,14 @@
 import { awards } from '../constants/index.js';
 
+// Badge label -> { emoji, chip classes }. Falls back to a neutral chip.
+const badgeStyles = {
+  Champion: { emoji: '🏆', className: 'bg-orange-500 text-white' },
+  Silver: { emoji: '🥈', className: 'bg-white-700 text-black' },
+  'Runner-Up': { emoji: '🥈', className: 'bg-white-700 text-black' },
+  'Top 5': { emoji: '🏅', className: 'bg-white-700 text-black' },
+  Invited: { emoji: '✈️', className: 'bg-blue-500/20 text-blue-300 border border-blue-500/40' },
+};
+
 const Awards = () => {
   return (
     <section className="c-space my-20" id="awards" data-aos="fade-up">
@@ -38,9 +47,9 @@ const Awards = () => {
                   </span>
                   {item.badge && (
                     <span className={`px-2 py-0.5 rounded text-[10px] font-bold flex items-center gap-1 ${
-                      item.badge === 'Champion' ? 'bg-orange-500 text-white' : 'bg-white-700 text-black'
+                      (badgeStyles[item.badge] ?? badgeStyles.Silver).className
                     }`}>
-                      {item.badge === 'Champion' ? '🏆' : '🥈'} {item.badge}
+                      {(badgeStyles[item.badge] ?? badgeStyles.Silver).emoji} {item.badge}
                     </span>
                   )}
                 </div>

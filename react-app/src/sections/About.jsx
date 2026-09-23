@@ -25,14 +25,17 @@ const About = () => {
         {/* Block 1: Intro Profile */}
         <div className="col-span-1 xl:row-span-3">
           <div className="grid-container flex flex-col items-center justify-center text-center">
+            {/* PLACEHOLDER: swap for a square headshot. See PLACEHOLDERS.md */}
             <div className="w-full h-[200px] rounded-2xl border border-white/10 mb-6 overflow-hidden">
-              <img src="/assets/grid1.png" alt="profile visual" className="w-full h-full object-cover" />
+              <img src="/assets/placeholders/portrait.png" alt="Pushkal Vashist" className="w-full h-full object-cover" />
             </div>
 
             <div>
               <p className="grid-headtext">Hi, I’m Pushkal Vashist</p>
               <p className="grid-subtext mt-4">
-                A Diploma student at Nanyang Polytechnic, specializing in <span className="text-blue-400">Applied AI & Analytics</span>. I bridge the gap between complex research and field-ready systems.
+                CTO at <span className="text-blue-400">ArchAIve</span> and a second-year student at Nanyang
+                Polytechnic reading <span className="text-blue-400">Applied AI & Analytics</span>, top of cohort at
+                4.00/4.00. I bridge the gap between complex research and field-ready systems.
               </p>
             </div>
           </div>
@@ -48,7 +51,8 @@ const About = () => {
             <div className="mt-4">
               <p className="grid-headtext">Tech Stack</p>
               <p className="grid-subtext">
-                Proficient in Python, C++, and Full-Stack Development. I leverage Cloud (AWS/Azure) to deploy scalable AI solutions.
+                Python, TypeScript and React on the surface, with LLM, RAG and multi-agent pipelines underneath.
+                I ship on AWS, Google Cloud, Alibaba Cloud, Huawei Cloud and Azure.
               </p>
             </div>
           </div>
@@ -113,9 +117,16 @@ const About = () => {
             </div>
 
             <div className="w-full md:w-1/2">
-              <p className="grid-headtext">My Mission</p>
+              <p className="grid-headtext">Every rep harder than the last</p>
               <p className="grid-subtext mt-4">
-                I turn complex AI ideas into practical, production-ready systems. My focus is building solutions that go beyond working prototypes to deliver measurable impact across real-world business and community challenges.
+                I started SGResolve in my first months of polytechnic knowing zero JavaScript. My team shipped a
+                deployed app anyway, became the youngest finalists in the National AI Student Challenge, and took
+                silver against university teams.
+              </p>
+              <p className="grid-subtext mt-3">
+                Then I kept raising the bar: champions at the MaritimeONE Case Summit with DockyAI, first place
+                with NeoPulse, and now engineering a multi-tenant AI platform as CTO. Practice makes perfect, as
+                long as every rep is harder than the last.
               </p>
             </div>
           </div>

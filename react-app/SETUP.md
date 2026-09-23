@@ -151,7 +151,11 @@ To move hosts, add that host's redirect URI in step 2 and reconnect once there.
 
 ## Deploy to Vercel
 
-1. Import the repo; set the project root to `react-app`.
+1. Import the repo; set the project root to `react-app`. **This must stay
+   `react-app`.** Vercel only reads the `vercel.json` inside the configured root
+   directory, and the SPA rewrite that makes `/projects/...` and `/blog/...`
+   survive a hard refresh lives in `react-app/vercel.json`. Point the root
+   anywhere else and every deep link 404s.
 2. Framework preset: **Vite**. Build `npm run build`, output `dist`.
 3. Add every env var from the table above. Use `GOOGLE_SERVICE_ACCOUNT_JSON`
    (full JSON string), **not** `GOOGLE_APPLICATION_CREDENTIALS`.

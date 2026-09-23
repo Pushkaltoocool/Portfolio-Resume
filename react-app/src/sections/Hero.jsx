@@ -20,7 +20,7 @@ const Hero = () => {
           >
             <span className="h-2 w-2 rounded-full bg-yellow-400 animate-pulse" />
             <p className="text-sm font-medium text-yellow-200/80 font-generalsans uppercase tracking-widest">
-              AI & Full Stack Developer
+              AI, Software & Cloud Engineer
             </p>
           </div>
 
@@ -35,20 +35,38 @@ const Hero = () => {
             </span> 
           </h1>
 
-          <p 
+          <p
             className="mt-6 max-w-lg text-lg text-gray-400 sm:text-xl font-light text-center md:text-left"
-            data-aos="fade-up" 
+            data-aos="fade-up"
             data-aos-delay="200"
           >
-            I build robust applications and intelligent AI solutions.  I believe practice makes perfect.
+            CTO at ArchAIve and an Applied AI student in Singapore. I build LLM, RAG and multi-agent
+            systems that actually ship. Practice makes perfect, as long as every rep is harder than the last.
           </p>
+
+          <div
+            className="mt-8 grid grid-cols-3 gap-4 sm:gap-8 w-full max-w-lg"
+            data-aos="fade-up"
+            data-aos-delay="250"
+          >
+            {[
+              { value: '3x', label: 'National & industry champion' },
+              { value: '4.00', label: 'GPA, top of cohort' },
+              { value: '5', label: 'Clouds shipped on' },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center md:text-left">
+                <p className="text-2xl sm:text-3xl font-bold text-white font-generalsans">{stat.value}</p>
+                <p className="text-[11px] text-gray-500 uppercase tracking-wider mt-1 leading-snug">{stat.label}</p>
+              </div>
+            ))}
+          </div>
 
           <div className="mt-10" data-aos="fade-up" data-aos-delay="300">
             <a href="#about">
-              <Button 
-                name="Let's work together" 
-                isBeam 
-                containerClass="sm:w-fit w-full sm:min-w-80" 
+              <Button
+                name="Let's work together"
+                isBeam
+                containerClass="sm:w-fit w-full sm:min-w-80"
               />
             </a>
           </div>

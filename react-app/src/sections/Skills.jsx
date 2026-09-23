@@ -3,9 +3,10 @@ import { skills } from '../constants/index.js';
 
 const iconByTitle = {
   'AI & Machine Learning': 'fa-solid fa-brain',
-  'Full-Stack Engineering': 'fa-solid fa-code',
   'Cloud & DevOps': 'fa-solid fa-cloud',
-  'Data & BI Systems': 'fa-solid fa-database',
+  'Backend & Data': 'fa-solid fa-database',
+  Languages: 'fa-solid fa-code',
+  Frontend: 'fa-solid fa-layer-group',
 };
 
 const Skills = () => {
