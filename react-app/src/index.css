@@ -24,7 +24,7 @@ body {
   }
 
   .nav-ul {
-    @apply flex flex-col items-center gap-4 sm:flex-row md:gap-6 relative z-20;
+    @apply flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-end sm:gap-x-5 sm:gap-y-2 md:gap-x-6 relative z-20;
   }
 
   .nav-li {
@@ -567,3 +567,272 @@ body {
   }
 }
 
+
+/* ═══════════════════════ Projects: card carousel ═════════════════════════ */
+
+/* Card/carousel tokens. Sits on the site's own near-black surface. */
+.labs {
+  --labs-card: #0e0e10;
+  --labs-ink: #f2f2f4;
+  --labs-ink-soft: #afb0b6;
+  --labs-hairline: rgba(255, 255, 255, 0.12);
+
+  --labs-card-w: clamp(260px, 25vw, 340px);
+  --labs-step: calc(var(--labs-card-w) * 1.17);
+}
+
+@media (max-width: 767px) {
+  .labs {
+    --labs-card-w: min(78vw, 300px);
+    --labs-step: calc(var(--labs-card-w) * 1.06);
+  }
+}
+
+/* ── carousel ─────────────────────────────────────────────────────────────── */
+.labs-stage {
+  perspective: 1800px;
+  perspective-origin: 50% 45%;
+}
+.labs-track {
+  position: relative;
+  transform-style: preserve-3d;
+  height: 500px;
+  outline: none;
+}
+@media (max-width: 767px) {
+  .labs-track {
+    height: 460px;
+  }
+}
+.labs-slot {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: var(--labs-card-w);
+  margin-left: calc(var(--labs-card-w) / -2);
+  /* `transform` is set inline from JS on purpose. Composing it here from
+     custom properties makes it non-interpolatable, and the slide never animates. */
+  transition: transform 620ms cubic-bezier(0.22, 0.61, 0.36, 1), opacity 320ms ease;
+}
+.labs-slot[data-far='true'] {
+  opacity: 0;
+  pointer-events: none;
+}
+.labs-slot:not([data-active='true']) {
+  cursor: pointer;
+}
+
+/* ── card ─────────────────────────────────────────────────────────────────── */
+.labs-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px;
+  border-radius: 24px;
+  background: var(--labs-card);
+  border: 1px solid var(--labs-hairline);
+  box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.9);
+  transition: border-color 300ms ease, box-shadow 300ms ease;
+}
+.labs-slot[data-active='true'] .labs-card {
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 30px 70px -26px rgba(0, 0, 0, 1), 0 0 40px -18px rgba(59, 130, 246, 0.45);
+}
+.labs-shot {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #17171b;
+  aspect-ratio: 4 / 3;
+  flex-shrink: 0;
+}
+.labs-title {
+  margin-top: 16px;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--labs-ink);
+}
+.labs-body {
+  margin-top: 9px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--labs-ink-soft);
+}
+.labs-cta {
+  margin-top: auto;
+  padding-top: 16px;
+  font-size: 0.875rem;
+  color: var(--labs-ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.labs-cta span {
+  transition: transform 220ms ease;
+}
+.labs-card:hover .labs-cta span {
+  transform: translateX(4px);
+}
+
+/* ── controls ─────────────────────────────────────────────────────────────── */
+.labs-nav {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--labs-hairline);
+  color: var(--labs-ink-soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: background 220ms ease, color 220ms ease, transform 160ms ease;
+}
+.labs-nav:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--labs-ink);
+}
+.labs-nav:active {
+  transform: scale(0.94);
+}
+
+.labs-pill {
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-size: 0.875rem;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--labs-ink-soft);
+  transition: background 220ms ease, color 220ms ease, border-color 220ms ease;
+}
+.labs-pill:hover {
+  color: var(--labs-ink);
+}
+.labs-pill[aria-pressed='true'] {
+  background: rgba(59, 130, 246, 0.14);
+  border-color: rgba(96, 165, 250, 0.45);
+  color: #dbeafe;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .labs-slot,
+  .labs-card,
+  .labs-cta span,
+  .labs-nav,
+  .labs-pill {
+    transition: none;
+  }
+}
+
+/* ── the card as a moving object ──────────────────────────────────────────── */
+/* Ambient drift lives on its own layer so it never fights the slot's
+   positioning transform. Duration and delay are staggered per card from JS. */
+.labs-float {
+  height: 100%;
+  animation-name: labs-drift;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  will-change: transform;
+}
+
+@keyframes labs-drift {
+  from {
+    transform: translateY(-7px) rotate(-0.5deg);
+  }
+  to {
+    transform: translateY(7px) rotate(0.5deg);
+  }
+}
+
+/* Whole card is the click target. */
+.labs-card {
+  cursor: pointer;
+}
+.labs-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  box-shadow: inset 0 0 0 0 rgba(96, 165, 250, 0);
+  transition: box-shadow 260ms ease;
+  pointer-events: none;
+}
+.labs-card:hover {
+  transform: translateY(-8px);
+}
+.labs-card:hover::after {
+  box-shadow: inset 0 0 0 1px rgba(96, 165, 250, 0.4);
+}
+.labs-card {
+  transition: transform 300ms cubic-bezier(0.22, 0.61, 0.36, 1), border-color 300ms ease,
+    box-shadow 300ms ease;
+}
+.labs-shot img {
+  transition: transform 600ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.labs-card:hover .labs-shot img {
+  transform: scale(1.05);
+}
+
+/* Entrance: cards rise in, staggered off their position in the row. */
+.labs-slot {
+  animation: labs-enter 700ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+@keyframes labs-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .labs-float {
+    animation: none;
+  }
+  .labs-slot {
+    animation: none;
+  }
+  .labs-card:hover {
+    transform: none;
+  }
+  .labs-card:hover .labs-shot img {
+    transform: none;
+  }
+}
+
+/* Stretched link: the whole card is the hit area, above the image and text but
+   below the hover ring (which is pointer-events:none anyway). */
+.labs-hit::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: 24px;
+}
+
+/* Drag: follow the pointer 1:1, so no easing while the button is held. */
+.labs-track {
+  cursor: grab;
+}
+.labs-track.is-dragging {
+  cursor: grabbing;
+}
+.labs-track.is-dragging .labs-slot {
+  transition: none;
+}
+.labs-track.is-dragging .labs-float {
+  animation-play-state: paused;
+}
+.labs-track.is-dragging .labs-card {
+  cursor: grabbing;
+}
+/* Stop the browser's own image/text drag from hijacking the gesture. */
+.labs-track img,
+.labs-track a {
+  -webkit-user-drag: none;
+  user-select: none;
+}

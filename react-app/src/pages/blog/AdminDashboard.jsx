@@ -210,6 +210,7 @@ const BookingRequests = ({ googleConnected }) => {
                 <p className="mt-2 font-mono text-sm text-white-600">
                   {fmtWhen(b.start)} · {b.durationMinutes} min · SGT
                 </p>
+                {b.location && <p className="mt-1 text-sm text-white-600">Location: {b.location}</p>}
                 {b.topic && <p className="mt-1 text-sm text-white-600">Topic: {b.topic}</p>}
                 {b.notes && <p className="mt-1 text-sm text-white-500 whitespace-pre-wrap">{b.notes}</p>}
                 {b.status === 'confirmed' && (

@@ -1,1 +1,7 @@
 node_modules
+.vercel
+.env*
+
+# Local screen recordings / references, not part of the site
+*.mp4
+*.mkv

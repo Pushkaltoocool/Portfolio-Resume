@@ -40,10 +40,10 @@ export default async function handler(req, res) {
 
     // Fetch a single request (for the admin list detail or the email response page).
     if (req.method === 'GET') {
-      const { name, email, topic, notes, start, end, durationMinutes, timezone, overlapsBusy, status, htmlLink } = booking;
+      const { name, email, location, topic, notes, start, end, durationMinutes, timezone, overlapsBusy, status, htmlLink } = booking;
       return send(res, 200, {
         ok: true,
-        booking: { id, name, email, topic, notes, start, end, durationMinutes, timezone, overlapsBusy, status, htmlLink },
+        booking: { id, name, email, location, topic, notes, start, end, durationMinutes, timezone, overlapsBusy, status, htmlLink },
       });
     }
 
@@ -70,6 +70,7 @@ export default async function handler(req, res) {
         '',
         `Name: ${booking.name}`,
         `Email: ${booking.email}`,
+        booking.location ? `Location: ${booking.location}` : null,
         booking.topic ? `Topic: ${booking.topic}` : null,
         booking.notes ? `Notes:\n${booking.notes}` : null,
       ]
@@ -79,6 +80,7 @@ export default async function handler(req, res) {
       const event = await createOwnerEvent(bookingCalendar, {
         summary,
         description,
+        ...(booking.location ? { location: booking.location } : {}),
         start: { dateTime: booking.start, timeZone: config.timezone },
         end: { dateTime: booking.end, timeZone: config.timezone },
         attendees: [{ email: booking.email, displayName: booking.name }],
